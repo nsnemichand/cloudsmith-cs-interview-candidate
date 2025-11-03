@@ -20,6 +20,9 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Required for OIDC
+      contents: read  # Required to checkout code
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
